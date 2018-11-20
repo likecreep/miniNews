@@ -1,21 +1,115 @@
-/**index.wxss**/
-.userinfo {
+/* 顶部导航样式 */
+scroll-view.nav-wrapper {
+  position: fixed;
+  top:0;
+  background-color: #03A9F4;
+  height: 46rpx;
+  padding: 8rpx 0;
+}
+
+.nav {
   display: flex;
-  flex-direction: column;
-  align-items: center;
+  color: #fff;
+  align-content: center;
+  justify-content: space-around;
 }
 
-.userinfo-avatar {
-  width: 128rpx;
-  height: 128rpx;
-  margin: 20rpx;
-  border-radius: 50%;
+.nav-item {
+  /* margin: 20rpx 0; */
+  font-size: 30rpx;
+  line-height: 42rpx;
+  font-weight: 200;
+  text-align: center;
+  flex-shrink: 0;
 }
 
-.userinfo-nickname {
-  color: #aaa;
+.nav-item.selected{
+  color:#ffffff;
+  font-weight:900;
+  border-bottom:2px solid #ffffff;
 }
 
-.usermotto {
-  margin-top: 200px;
+/* 首页轮播图样式 */
+.swiper-wrapper {
+  position: relative;
+  /* 高46rpx 上padding 6rpx  下padding 6rpx */
+  margin-top: 62rpx;
+  height: 400rpx;
+}
+
+.slide-image {
+  width: 750rpx;
+  height: 400rpx;
+}
+
+.swiper-tag{
+  position: absolute;
+  right: 0;
+  top: 0;
+  padding: 4rpx 24rpx;
+  font-size: 24rpx;
+  color: #ffffff;
+  background-color: rgba(244, 67, 54, 0.7);
+  border-bottom-left-radius: 20rpx;
+}
+
+/* 轮播图对应新闻的标题样式 */
+.swiper-description {
+  position: absolute;
+  bottom: 0;
+  background-color: rgba(117, 117, 117, 0.7);
+  /* 750rpx- 16rpx-16rpx */
+  width:718rpx;
+  padding: 16rpx 16rpx;
+}
+
+.swiper-title{
+  color: #ffffff;
+  font-size: 30rpx;
+  line-height: 42rpx;
+}
+
+.swiper-subtitle{
+  display: flex;
+  justify-content: space-between;
+  color: rgb(224, 224, 224);
+  font-size: 20rpx;
+}
+
+/* 新闻列表样式 */
+.news-wrapper{
+  padding: 24rpx;
+}
+
+.news-item{
+  display: flex;
+  border-bottom:1px solid #e0e0e0;
+  padding:20rpx 0;
+}
+
+.news-text{
+  width:500rpx;
+  margin-right:30rpx;
+}
+
+.news-title{
+  font-size:30rpx;
+  line-height:42rpx;
+  color:#212121;
+}
+
+.news-subtitle{
+  font-size:24rpx;
+  line-height:34rpx;
+  color:#757575;
+}
+
+.news-image{
+  /* 750-500-30-24-24 */
+  width: 172rpx;
+  height: 120rpx;
+}
+
+.news-item:last-child{
+  border-bottom: none;
 }

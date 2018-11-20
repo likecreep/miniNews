@@ -1,0 +1,41 @@
+<!-- 顶部导航栏部分 -->
+<scroll-view scroll-x="true" class="nav-wrapper">
+  <view class="nav">
+    <block  wx:for="{{type}}" wx:key="value">
+    <view class="nav-item {{item.value==selectedType?'selected':''}}" data-value="{{item.value}}" bind:tap="setNewsType">{{item.name}}</view>
+    </block>
+  </view>
+</scroll-view>
+
+<!-- 导航栏下面轮播图部分 -->
+<swiper class="swiper-wrapper" indicator-dots="true" indicator-color="#B3E5FC" indicator-active-color="#0288D1"  autoplay="true" circular="true" interval="5000" duration="500">
+  <block wx:for="{{swiperItems}}" wx:key="id">
+    <!-- 新闻图片 -->
+    <swiper-item>
+      <image src="{{!!item.firstImage?item.firstImage:'/images/default-news.jpg'}}" class="slide-image"/>
+    <!-- 新闻图片右上角的tag -->
+    <view class="swiper-tag">热 门</view>
+    <!-- 新闻图片对应的文字描述 -->
+    <view class="swiper-description">
+      <view class="swiper-title">{{item.title}}</view>
+      <view class="swiper-subtitle">
+        <view class="swiper-source">{{!!item.source?item.source:'未知来源'}}</view>
+        <view class="swiper-date">{{item.date}}</view>
+      </view>
+    </view>
+    </swiper-item>
+  </block>
+</swiper>
+<!-- 新闻列表 -->
+<view class="news-wrapper">
+  <block wx:for="{{newsList}}" wx:key="id">
+    <view data-id="{{item.id}}" class="news-item">
+      <view class="news-text">
+        <view class="news-title">{{item.title}}</view>
+        <view class="news-subtitle">{{!!item.source?item.source:'未知来源'}} {{item.date}}
+        </view>
+      </view>
+      <image class="news-image" src="{{!!item.firstImage?item.firstImage:'/images/default-news.jpg'}}"></image>
+    </view>
+  </block>
+</view>
