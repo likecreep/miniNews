@@ -1,3 +1,5 @@
+const app = getApp()
+
 Page({
   data:{
     type: [
@@ -30,9 +32,12 @@ Page({
       },
       success: (res) => {
         let result = res.data.result;
-        this.setTimeFormat(result);
-        this.setSwiper(result);
-        this.setNewsList(result)
+        this.setDataFormat(result);
+        this.setNews(result);
+        
+        // 在globaldata中保存格式化好的result
+        app.globalData.newsList = result;
+        
         console.log(res)
       },
       complete: ()=> {
@@ -41,19 +46,22 @@ Page({
     })
   },
 
-  setTimeFormat(result){
+  setDataFormat(result){
     result.forEach(item=>{
       let date = new Date(item.date);
       item.date= `${date.getFullYear()}-${date.getMonth()+1}-${date.getDate()}`
+      item.source = `${!!item.source ? item.source : '未知来源'}`,
+        item.firstImage = `${!!item.firstImage ? item.firstImage : '/images/default-news.jpg'}`
     })
   },
 
-  setSwiper(result){
+  setNews(result){
     let swiperItems = result;
     if(result.length>3)
       swiperItems = result.slice(0,3);
     this.setData({
-      swiperItems
+      swiperItems,
+      newsList:result
     })
     console.log(result);
     console.log(swiperItems);
@@ -68,9 +76,10 @@ Page({
     this.getNews();
   },
 
-  setNewsList(result){
-    this.setData({
-      newsList: result
+  // 点击跳转到新闻详情页
+  navigateToNewsDetail(event){
+    wx.navigateTo({
+      url: `/pages/detail/detail?index=${event.currentTarget.dataset.index}`
     })
   }
 

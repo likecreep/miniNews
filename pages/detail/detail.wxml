@@ -1,0 +1,22 @@
+<!-- 顶部蓝色分界线 -->
+<view class="header-divider"></view>
+<!-- 内容区域 -->
+<view class="container">
+  <!-- 标题区域 -->
+  <view class="title-wrapper">
+    <view class="title">{{title}}</view>
+    <view class="subtitle">
+      <view class="source-and-date">{{source}}　{{date}}</view>
+      <view class="read-count">阅读量：{{readCount}}</view>
+    </view>
+  </view>
+  <!-- 正文区域 -->
+  <block wx:for="{{content}}" wx:key="id">
+    <view class="content-wrapper">
+      <view wx:if="{{item.type === 'p'}}" class="paragraph">{{item.text}}</view>
+      <view wx:elif="{{item.type === 'strong'}}" class="strong">{{item.text}}</view>
+      <image wx:elif="{{item.type === 'image'}}" src="{{item.src}}" class="news-image" mode="widthFix"></image>
+      <view wx:else>{{item.text}}</view>
+    </view>
+  </block>
+</view>

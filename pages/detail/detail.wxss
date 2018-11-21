@@ -1,0 +1,53 @@
+/* 顶部蓝色分割线 */
+.header-divider {
+  position: fixed;
+  top: 0;
+  /* 固定定位后包裹特性 所以手动设置宽 */
+  width: 750rpx;
+  border-bottom: 1px solid #03A9F4;
+}
+
+/* 标题区域样式 */
+.container {
+  padding: 40rpx 30rpx;
+}
+
+.title-wrapper {
+  margin-bottom: 50rpx;
+}
+
+.title{
+  font-size: 40rpx;
+  line-height: 56rpx;
+  color: #212121;
+}
+
+.subtitle{
+  display: flex;
+  justify-content: space-between;
+  font-size: 25rpx;
+  line-height: 35rpx;
+  color: #757575;
+  margin-top: 24rpx;
+}
+
+/* 正文样式 */
+.content-wrapper view{
+  margin-bottom: 30rpx;
+}
+
+.news-image{
+  width: 100%
+}
+
+.strong {
+  font-weight: bold;
+  font-size: 40rpx;
+  margin-top: 50rpx;
+}
+
+.paragraph {
+  font-size: 35rpx;
+  line-height: 49rpx;
+  text-indent: 2em;
+}
